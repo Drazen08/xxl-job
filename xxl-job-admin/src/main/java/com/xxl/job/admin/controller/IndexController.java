@@ -1,7 +1,6 @@
 package com.xxl.job.admin.controller;
 
 import com.xxl.job.admin.controller.annotation.PermessionLimit;
-import com.xxl.job.admin.controller.interceptor.PermissionInterceptor;
 import com.xxl.job.admin.core.util.I18nUtil;
 import com.xxl.job.admin.service.XxlJobService;
 import com.xxl.job.core.biz.model.ReturnT;
@@ -46,13 +45,13 @@ public class IndexController {
         ReturnT<Map<String, Object>> chartInfo = xxlJobService.chartInfo(startDate, endDate);
         return chartInfo;
     }
-	
+
 	@RequestMapping("/toLogin")
 	@PermessionLimit(limit=false)
 	public String toLogin(Model model, HttpServletRequest request) {
-		if (PermissionInterceptor.ifLogin(request)) {
-			return "redirect:/";
-		}
+//		if (PermissionInterceptor.ifLogin(request)) {
+//			return "redirect:/";
+//		}
 		return "login";
 	}
 	
@@ -61,9 +60,9 @@ public class IndexController {
 	@PermessionLimit(limit=false)
 	public ReturnT<String> loginDo(HttpServletRequest request, HttpServletResponse response, String userName, String password, String ifRemember){
 		// valid
-		if (PermissionInterceptor.ifLogin(request)) {
-			return ReturnT.SUCCESS;
-		}
+//		if (PermissionInterceptor.ifLogin(request)) {
+//			return ReturnT.SUCCESS;
+//		}
 
 		// param
 		if (userName==null || userName.trim().length()==0 || password==null || password.trim().length()==0){
@@ -72,10 +71,10 @@ public class IndexController {
 		boolean ifRem = (ifRemember!=null && ifRemember.trim().length()>0 && "on".equals(ifRemember))?true:false;
 
 		// do login
-		boolean loginRet = PermissionInterceptor.login(response, userName, password, ifRem);
-		if (!loginRet) {
-			return new ReturnT<String>(500, I18nUtil.getString("login_param_unvalid"));
-		}
+//		boolean loginRet = PermissionInterceptor.login(response, userName, password, ifRem);
+//		if (!loginRet) {
+//			return new ReturnT<String>(500, I18nUtil.getString("login_param_unvalid"));
+//		}
 		return ReturnT.SUCCESS;
 	}
 	
@@ -83,9 +82,9 @@ public class IndexController {
 	@ResponseBody
 	@PermessionLimit(limit=false)
 	public ReturnT<String> logout(HttpServletRequest request, HttpServletResponse response){
-		if (PermissionInterceptor.ifLogin(request)) {
-			PermissionInterceptor.logout(request, response);
-		}
+//		if (PermissionInterceptor.ifLogin(request)) {
+//			PermissionInterceptor.logout(request, response);
+//		}
 		return ReturnT.SUCCESS;
 	}
 	

@@ -29,14 +29,6 @@ public class XxlJobAdminConfig implements InitializingBean{
         adminConfig = this;
     }
 
-    // conf
-
-    @Value("${xxl.job.login.username}")
-    private String loginUsername;
-
-    @Value("${xxl.job.login.password}")
-    private String loginPassword;
-
     @Value("${xxl.job.i18n}")
     private String i18n;
 
@@ -61,13 +53,7 @@ public class XxlJobAdminConfig implements InitializingBean{
     @Resource
     private JavaMailSender mailSender;
 
-    public String getLoginUsername() {
-        return loginUsername;
-    }
 
-    public String getLoginPassword() {
-        return loginPassword;
-    }
 
     public String getI18n() {
         return i18n;

@@ -1,6 +1,5 @@
 package com.xxl.job.admin.controller;
 
-import com.xxl.job.admin.controller.interceptor.PermissionInterceptor;
 import com.xxl.job.admin.core.conf.XxlJobAdminConfig;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,16 +16,16 @@ public class JobInfoControllerTest extends AbstractSpringMvcTest {
 
   private Cookie cookie;
 
-  @Before
-  public void login() throws Exception {
-    MvcResult ret = mockMvc.perform(
-        post("/login")
-            .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-            .param("userName", XxlJobAdminConfig.getAdminConfig().getLoginUsername())
-            .param("password", XxlJobAdminConfig.getAdminConfig().getLoginPassword())
-    ).andReturn();
-    cookie = ret.getResponse().getCookie(PermissionInterceptor.LOGIN_IDENTITY_KEY);
-  }
+//  @Before
+//  public void login() throws Exception {
+//    MvcResult ret = mockMvc.perform(
+//        post("/login")
+//            .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+//            .param("userName", XxlJobAdminConfig.getAdminConfig().getLoginUsername())
+//            .param("password", XxlJobAdminConfig.getAdminConfig().getLoginPassword())
+//    ).andReturn();
+//    cookie = ret.getResponse().getCookie(PermissionInterceptor.LOGIN_IDENTITY_KEY);
+//  }
 
   @Test
   public void testAdd() throws Exception {
