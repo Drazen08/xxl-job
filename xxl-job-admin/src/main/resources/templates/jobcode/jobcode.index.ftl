@@ -88,8 +88,6 @@
 
 		<div class="content-wrapper" id="ideWindow" ></div>
 
-		<!-- footer -->
-		<#--<@netCommon.commonFooter />-->
 	</div>
 
     <!-- 保存.模态框 -->

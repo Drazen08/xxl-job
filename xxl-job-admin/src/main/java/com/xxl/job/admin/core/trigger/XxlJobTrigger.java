@@ -122,7 +122,6 @@ public class XxlJobTrigger {
         triggerParam.setGlueUpdatetime(jobInfo.getGlueUpdatetime().getTime());
         triggerParam.setBroadcastIndex(index);
         triggerParam.setBroadcastTotal(total);
-
         // 3、init address
         String address = null;
         ReturnT<String> routeAddressResult = null;
