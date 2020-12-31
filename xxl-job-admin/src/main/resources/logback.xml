@@ -24,7 +24,7 @@
             <!-- rollover daily -->
             <fileNamePattern>${LOG_HOME}/${APP_NAME}.%d{yyyy-MM-dd}.log.%i
             </fileNamePattern>
-            <MaxHistory>10</MaxHistory>
+            <MaxHistory>3</MaxHistory>
             <timeBasedFileNamingAndTriggeringPolicy
                     class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>30MB</maxFileSize>
